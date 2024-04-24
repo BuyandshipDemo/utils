@@ -107,7 +107,7 @@ func Load(fpath string) []server.Option {
 
 	// monitoring
 	if cfg.Observability.Monitoring.Address != "" {
-		opts = append(opts, server.WithTracer(prometheus.NewServerTracer(cfg.Observability.Monitoring.Address, cfg.KitexInfo.ServiceName)))
+		opts = append(opts, server.WithTracer(prometheus.NewServerTracer(cfg.Observability.Monitoring.Address, "/kitexserver")))
 	}
 	return opts
 }
